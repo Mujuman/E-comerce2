@@ -227,3 +227,12 @@ body{
     font-size:32px;
   }
 }
+
+.shop-now{
+   text-decoration:none;
+  font-weight:500;
+  transition:0.3s;
+  color: white;
+}
+
+
