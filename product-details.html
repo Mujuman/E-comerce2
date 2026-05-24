@@ -16,6 +16,7 @@
       <li><a href="product-form.html">Add Product</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <li><a href="cart.html">Cart <span class="cart-count">0</span></a></li>
     </ul>
   </nav>
 
@@ -50,5 +51,30 @@
       </div>
     </div>
   </section>
+  <script src="javascript-api.js"></script>
+  <script>
+    (function () {
+      var btn = document.querySelector('.add-btn');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var title = document.querySelector('.detail-info h1')?.textContent?.trim() || '';
+        var priceText = document.querySelector('.detail-price')?.textContent || '';
+        var price = parseFloat((priceText || '').replace(/[^0-9.-]+/g, '')) || 0;
+        var image = document.querySelector('.detail-image')?.src || '';
+        var product = {
+          id: title || ('product-' + Date.now()),
+          title: title,
+          price: price,
+          image: image,
+          quantity: 1
+        };
+        if (window.addToCart && typeof window.addToCart === 'function') {
+          window.addToCart(product);
+        } else {
+          console.warn('window.addToCart is not defined');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

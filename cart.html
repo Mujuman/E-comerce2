@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart | Muju Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <h1 class="logo">Muju Store</h1>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#prod">Products</a></li>
+      <li><a href="product-form.html">Add Product</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="cart.html" class="cart-link">Cart <span class="cart-count">0</span></a></li>
+    </ul>
+  </nav>
+
+  <section class="page-section">
+    <h2 class="section-title">Your Cart</h2>
+    <div class="cart-container">
+      <!-- Cart items will be rendered here -->
+      <div id="cartList"></div>
+      <div id="cartSummary"></div>
+    </div>
+  </section>
+
+  <script src="javascript-api.js"></script>
+  <script>
+    function renderCart(){
+      const cart = (window.getCart && window.getCart()) || JSON.parse(localStorage.getItem('muju_cart')||'[]');
+      const list = document.getElementById('cartList');
+      const summary = document.getElementById('cartSummary');
+      list.innerHTML = '';
+      if(!cart || cart.length === 0){
+        list.innerHTML = '<p>Your cart is empty.</p>';
+        summary.innerHTML = '';
+        return;
+      }
+      cart.forEach(item => {
+        const itemEl = document.createElement('div');
+        itemEl.className = 'cart-item';
+        itemEl.innerHTML = `
+          <img src="${item.image}" alt="${item.title}" />
+          <div class="cart-item-info">
+            <h3>${item.title}</h3>
+            <p class="cart-item-price">$${(item.price).toFixed(2)}</p>
+            <div class="qty-controls">
+              <button class="qty-decrease">-</button>
+              <input class="qty-input" type="number" min="1" value="${item.quantity}">
+              <button class="qty-increase">+</button>
+            </div>
+          </div>
+          <button class="remove-item">Remove</button>
+        `;
+        list.appendChild(itemEl);
+
+        itemEl.querySelector('.remove-item').addEventListener('click', ()=>{
+          window.removeFromCart && window.removeFromCart(item.id);
+          renderCart();
+        });
+        itemEl.querySelector('.qty-increase').addEventListener('click', ()=>{
+          window.setQuantity && window.setQuantity(item.id, item.quantity + 1);
+          renderCart();
+        });
+        itemEl.querySelector('.qty-decrease').addEventListener('click', ()=>{
+          window.setQuantity && window.setQuantity(item.id, Math.max(1, item.quantity - 1));
+          renderCart();
+        });
+        itemEl.querySelector('.qty-input').addEventListener('change', (e)=>{
+          const val = parseInt(e.target.value) || 1;
+          window.setQuantity && window.setQuantity(item.id, val);
+          renderCart();
+        });
+      });
+
+      const total = cart.reduce((s,i)=>s + i.price * i.quantity, 0);
+      summary.innerHTML = `
+        <div class="cart-summary-card">
+          <p>Items: ${cart.reduce((s,i)=>s + i.quantity, 0)}</p>
+          <p class="cart-total">Total: $${total.toFixed(2)}</p>
+          <button class="submit-btn" id="checkoutBtn">Checkout</button>
+        </div>
+      `;
+      document.getElementById('checkoutBtn').addEventListener('click', ()=>{
+        alert('Checkout is not implemented in this demo.');
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      renderCart();
+      window.updateCartCount && window.updateCartCount();
+    });
+  </script>
+</body>
+</html>

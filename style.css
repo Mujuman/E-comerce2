@@ -235,6 +235,19 @@ body{
   color: white;
 }
 
+.cart-count{
+  display:inline-block;
+  min-width:20px;
+  height:20px;
+  font-size:12px;
+  background:#ef4444;
+  color:white;
+  border-radius:999px;
+  padding:0 7px;
+  line-height:20px;
+  margin-left:8px;
+}
+
 /* Shared page sections */
 .page-hero{
   width:100%;
