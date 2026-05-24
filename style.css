@@ -235,6 +235,267 @@ body{
   color: white;
 }
 
+/* Shared page sections */
+.page-hero{
+  width:100%;
+  min-height:50vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 8%;
+  background:white;
+}
+
+.page-hero-content{
+  max-width:680px;
+}
+
+.page-hero h1{
+  font-size:44px;
+  margin:20px 0;
+}
+
+.page-hero p{
+  font-size:18px;
+  line-height:1.8;
+  color:#475569;
+}
+
+.about-hero{
+  background:linear-gradient(135deg, rgba(37,99,235,0.12), rgba(37,99,235,0.04));
+}
+
+.contact-hero{
+  background:linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.04));
+}
+
+.page-section{
+  padding:80px 8%;
+}
+
+.grid-two{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.feature-list{
+  margin-top:25px;
+  list-style:none;
+  display:grid;
+  gap:14px;
+}
+
+.feature-list li{
+  padding:18px 22px;
+  border-radius:18px;
+  background:#f8fafc;
+  color:#334155;
+}
+
+.feature-card{
+  background:#1e293b;
+  color:white;
+  border-radius:24px;
+  padding:35px;
+  box-shadow:0 20px 40px rgba(15,23,42,0.08);
+}
+
+.feature-card h3{
+  margin-bottom:18px;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  margin-top:24px;
+}
+
+.feature-grid div{
+  background:rgba(255,255,255,0.08);
+  padding:18px;
+  border-radius:18px;
+}
+
+.contact-section{
+  padding-top:40px;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+.contact-card{
+  background:white;
+  border-radius:24px;
+  padding:35px;
+  box-shadow:0 20px 40px rgba(15,23,42,0.06);
+}
+
+.contact-card h2{
+  margin-bottom:18px;
+}
+
+.contact-info p{
+  margin-bottom:18px;
+  color:#475569;
+  line-height:1.8;
+}
+
+.contact-form{
+  display:grid;
+  gap:18px;
+}
+
+.contact-form label{
+  font-weight:600;
+  color:#334155;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  border:1px solid #d1d5db;
+  border-radius:16px;
+  padding:16px 18px;
+  background:#f8fafc;
+  transition:0.2s;
+}
+
+.detail-page{
+  padding-top:40px;
+}
+
+.product-detail-card{
+  display:grid;
+  grid-template-columns:1.1fr 0.9fr;
+  gap:40px;
+  align-items:center;
+}
+
+.detail-image-wrap{
+  background:#f8fafc;
+  border-radius:30px;
+  padding:30px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.detail-image{
+  width:100%;
+  max-width:500px;
+  border-radius:24px;
+}
+
+.detail-info{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.detail-category{
+  color:#475569;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  font-size:13px;
+}
+
+.detail-price{
+  font-size:36px;
+  color:#2563eb;
+  font-weight:700;
+}
+
+.detail-description{
+  color:#475569;
+  line-height:1.8;
+}
+
+.detail-features{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(140px, 1fr));
+  gap:16px;
+}
+
+.detail-features div{
+  background:#f8fafc;
+  border-radius:18px;
+  padding:18px;
+}
+
+@media(max-width:1024px){
+  .featured-card{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+  .featured-image{
+    max-width:100%;
+    margin:0 auto;
+  }
+}
+
+@media(max-width:900px){
+  .grid-two,
+  .contact-grid,
+  .product-detail-card,
+  .feature-grid,
+  .detail-features{
+    grid-template-columns:1fr;
+  }
+  .form-card{
+    grid-template-columns:1fr;
+  }
+}
+
+.featured-section{
+  padding:60px 8%;
+}
+
+.featured-card{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+  background:white;
+  border-radius:30px;
+  padding:40px;
+  box-shadow:0 20px 45px rgba(15,23,42,0.08);
+}
+
+.featured-copy h2{
+  font-size:38px;
+  margin:20px 0;
+}
+
+.featured-copy p{
+  color:#475569;
+  line-height:1.8;
+  margin-bottom:25px;
+}
+
+.featured-image{
+  width:100%;
+  border-radius:24px;
+  object-fit:cover;
+  min-height:320px;
+}
+
+@media(max-width:600px){
+  .page-hero{
+    padding:60px 5%;
+  }
+  .page-hero h1{
+    font-size:32px;
+  }
+  .page-section{
+    padding:60px 5%;
+  }
+}
+
 /* Product Form Page */
 .form-page{
   min-height:calc(100vh - 92px);

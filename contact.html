@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Muju Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <h1 class="logo">Muju Store</h1>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#prod">Products</a></li>
+      <li><a href="product-form.html">Add Product</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero contact-hero">
+    <div class="page-hero-content">
+      <span class="badge">Get in Touch</span>
+      <h1>We’re here to help you grow your shop</h1>
+      <p>Have a question, feedback, or need support? Send us a message and we’ll respond as soon as possible.</p>
+    </div>
+  </section>
+
+  <section class="page-section contact-section">
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h2>Contact details</h2>
+        <p>Reach out for product support, updates, or partnership inquiries.</p>
+        <div class="contact-info">
+          <p><strong>Email</strong><br>support@mujustore.com</p>
+          <p><strong>Phone</strong><br>+1 (555) 123-4567</p>
+          <p><strong>Address</strong><br>123 Market Street, Commerce City</p>
+        </div>
+      </div>
+
+      <div class="contact-card contact-form-card">
+        <h2>Send a message</h2>
+        <form class="contact-form" action="#" method="post">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your email" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
